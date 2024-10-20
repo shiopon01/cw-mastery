@@ -1,4 +1,5 @@
 "use client";
+export const runtime = 'edge';
 
 import type React from "react";
 import { useEffect } from "react";

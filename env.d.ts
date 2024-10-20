@@ -3,3 +3,7 @@
 
 interface CloudflareEnv {
 }
+
+interface Window {
+  webkitAudioContext: typeof AudioContext
+}

@@ -1,4 +1,4 @@
-export const MORSE_CODE = {
+export const MORSE_CODE: any = {
 	// アルファベット
 	A: ".-",
 	B: "-...",
