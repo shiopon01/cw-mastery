@@ -19,8 +19,12 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
+			"complexity": {
+				"noBannedTypes":"off"
+			},
 			"recommended": true,
 			"suspicious": {
+				"noArrayIndexKey": "off",
 				"noExplicitAny": "off"
 			}
 		}

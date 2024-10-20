@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { useEffect } from "react";
 
 import { redirect } from "next/navigation";
 
-import { signIn } from "next-auth/react";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 const LoginPage = () => {
 	const { data: session, status } = useSession();
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		// ログイン済みの場合はTOPページにリダイレクト
 		if (status === "authenticated") {
@@ -20,8 +21,7 @@ const LoginPage = () => {
 	const handleLogin = (provider: string) => async (event: React.MouseEvent) => {
 		event.preventDefault();
 		const result = await signIn(provider);
-
-		// ログインに成功したらTOPページにリダイレクト
+		// ログイン成功
 		if (result) {
 			redirect("/");
 		}

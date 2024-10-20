@@ -107,26 +107,6 @@ export const MORSE_CODE = {
 	"'": ".----.",
 };
 
-export const DIFFICULTY_LEVELS = {
-	easy: ["HELLO"],
-	medium: [
-		"JAVASCRIPT",
-		"REACT",
-		"TAILWIND",
-		"DEVELOPER",
-		"チリヌルヲ",
-		"ワカヨタレソ",
-	],
-	hard: [
-		"ANTHROPIC",
-		"ARTIFICIAL",
-		"INTELLIGENCE",
-		"ツネナラム",
-		"ウヰノオクヤマ",
-		"ケフコエテ",
-	],
-};
-
 export const DEFAULT_WPM = 15;
 export const MIN_WPM = 5;
 export const MAX_WPM = 30;
