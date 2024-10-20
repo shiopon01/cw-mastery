@@ -1,15 +1,9 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import authConfig from "./auth.config";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
 	debug: true,
 	session: { strategy: "jwt" },
-	providers: [
-		Google({
-			clientId: process.env.GOOGLE_CLIENT_ID,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-		}),
-	],
 	callbacks: {
 		jwt: async ({ token, user, account, profile }) => {
 			// 注意: トークンをログ出力してはダメです。
@@ -37,4 +31,5 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 			};
 		},
 	},
+	...authConfig,
 });

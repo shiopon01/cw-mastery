@@ -1,18 +1,29 @@
 import { MORSE_CODE } from "@/constants";
 
-export function convertToMorseString(word: string): string {
+export function convertToMorseString(word: string): {
+	result: boolean;
+	text: string;
+} {
 	let morseString = "";
+	let errorString = "";
 	const chars = word.split("");
 	for (let i = 0; i < chars.length; i++) {
 		const char = chars[i];
-		const morse = MORSE_CODE[char];
+		const morse = MORSE_CODE![char];
+		if (morse === undefined) {
+			errorString += char;
+			continue;
+		}
 		const symbols = morse.split("");
 		for (let j = 0; j < symbols.length; j++) {
 			morseString += symbols[j];
 		}
 		morseString += " ";
 	}
-	return morseString;
+	return {
+		result: errorString === "",
+		text: errorString === "" ? morseString : errorString,
+	};
 }
 
 const playBeep = (audio: AudioContext, duration: number) => {

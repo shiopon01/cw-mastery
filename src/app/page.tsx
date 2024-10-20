@@ -1,5 +1,5 @@
 "use client";
-export const runtime = 'edge';
+export const runtime = "edge";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,8 +30,14 @@ export default function Home() {
 
 	const playMorseCode = () => {
 		console.log(userInput.toUpperCase());
-		const code = convertToMorseString(userInput.toUpperCase());
-		console.log(code);
+		const result = convertToMorseString(userInput.toUpperCase());
+		console.log(result);
+
+		if (!result.result) {
+			alert("変換できない文字: " + result.text);
+			return;
+		}
+
 		playMorseBeep(
 			userInput.toUpperCase(),
 			wpm,
@@ -44,7 +50,7 @@ export default function Home() {
 			{
 				no: history.length + 1,
 				input: userInput,
-				code: code,
+				code: result.text,
 			},
 		]);
 		setUserInput("");
